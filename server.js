@@ -16,6 +16,14 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
+// var connection = mysql.createConnection({
+//   host: "localhost",
+//   port: 3306,
+//   user: "root",
+//   password: "root",
+//   database: "burgers_db"
+// });
+
 var connection = mysql.createConnection({
   host: "us-cdbr-iron-east-04.cleardb.net",
   port: 3306,
@@ -55,8 +63,9 @@ app.get("/api/burgers", function(req, res) {
 });
 
 app.post("/api/burgers", function(req, res) {
-    connection.query("INSERT INTO burgers (burger) VALUES (?)", [req.body.burger], function(err, result) {
+    connection.query("INSERT INTO burgers (burger_name) VALUES (?)", [req.body.burger], function(err, result) {
       if (err) {
+        console.log(err);
         return res.status(500).end();
       }
       // res.redirect("/")
@@ -67,7 +76,7 @@ app.post("/api/burgers", function(req, res) {
   });
 
 app.put("/api/burgers/:id", function(req, res) {
-    connection.query("UPDATE burgers SET burger = ? WHERE id = ?", [req.body.burger, req.params.id], function(err, result) {
+    connection.query("UPDATE burgers SET devoured = ? WHERE id = ?", [1, req.params.id], function(err, result) {
       if (err) {
         // If an error occurred, send a generic server failure
         return res.status(500).end();

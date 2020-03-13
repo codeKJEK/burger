@@ -40,7 +40,7 @@
   $(".updateburger").on("click", function(event) {
       var id = $(this).data("burgerid");
       const updateBurger = {
-          burger: true
+          devoured: 1
       };
       $.ajax("api/burgers/" + id, {
           type: "PUT",
