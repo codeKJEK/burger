@@ -1,0 +1,24 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "This app stores burgers will be displayed to the user in HTML from the database waiting to be devoured once they are selected (devoured) they will be stored in the devoured database and displayed to the user from there",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KJEKcode/burger.git"
+  },
+  "author": "Kurtis Kovel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KJEKcode/burger/issues"
+  },
+  "homepage": "https://github.com/KJEKcode/burger#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql": "^2.18.1"
+  }
+}
