@@ -15,12 +15,13 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+
 var connection = mysql.createConnection({
-  host: "localhost",
+  host: "us-cdbr-iron-east-04.cleardb.net",
   port: 3306,
-  user: "root",
-  password: "root",
-  database: "burgers_db"
+  user: "b3e6a3911ff2a2",
+  password: "2a26d43f",
+  database: "heroku_84651f237e48fe4"
 });
 
 connection.connect(function(err) {
