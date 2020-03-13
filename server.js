@@ -42,15 +42,26 @@ app.get("/", function(req, res) {
   });
 });
 
+// Retrieve all movies
+app.get("/api/burgers", function(req, res) {
+  connection.query("SELECT * FROM burgers;", function(err, data) {
+    if (err) {
+      return res.status(500).end();
+    }
+
+    res.json(data);
+  });
+});
+
 app.post("/api/burgers", function(req, res) {
     connection.query("INSERT INTO burgers (burger) VALUES (?)", [req.body.burger], function(err, result) {
       if (err) {
         return res.status(500).end();
       }
-      res.redirect("/")
+      // res.redirect("/")
       // Send back the ID of the new movie
-      // res.json({ id: result.insertId });
-      // console.log({ id: result.insertId });
+      res.json({ id: result.insertId });
+      console.log({ id: result.insertId });
     });
   });
 
